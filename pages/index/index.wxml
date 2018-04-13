@@ -1,0 +1,240 @@
+<!--index.wxml--> 
+<view class="container">
+  <view class="loading-modal" hidden="{{ loadingModalHide }}" wx:if="{{!topics_list[0]}}">
+    <view class="loading-text-wrap">
+      <image src="../images/loading.gif" class="load_img"></image>
+      <view class="loading-text">loading...</view> 
+    </view>
+  </view>
+  <view wx:else>
+
+    <view class="c_swiper">
+      <view class='bottom_padding c_count'>
+        <image src="../images/icon_count.svg" class='icon_count'></image>
+        统计信息
+      </view>
+      <swiper  autoplay="true" interval="3000" duration="500" circular="true">
+        <block>
+          <swiper-item>
+            <view class="c_items">
+              <view class="item">
+                <view class="green_bg">
+                  <image src='../images/icon_item_1.png'></image>
+                </view>
+                <view>
+                  会员数
+                </view>
+                <view>
+                  {{statistics_datas.user}}
+                </view>
+              </view>
+              <view class="item">
+                <view class="green_bg">
+                  <image src='../images/icon_item_2.png'></image>
+                </view>
+                <view>
+                  主题数
+                </view>
+                <view>
+                  {{statistics_datas.topic}}
+                </view>
+              </view>
+              <view class="item">
+                <view class="green_bg">
+                  <image src='../images/icon_item_3.png'></image>
+                </view>
+                <view>
+                  文章数
+                </view>
+                <view>
+                  {{statistics_datas.article}}
+                </view>
+              </view>
+              <view class="item">
+                <view class="green_bg">
+                  <image src='../images/icon_item_4.png'></image>
+                </view>
+                <view>
+                  回复数
+                </view>
+                <view>
+                  {{statistics_datas.comment}}
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class="c_items">
+              <view class="item">
+                <view class="green_bg">
+                  <image src='../images/icon_item_5.png'></image>
+                </view>
+                <view>
+                  资源数
+                </view>
+                <view>
+                  {{statistics_datas.resource}}
+                </view>
+              </view>
+              <view class="item">
+                <view class="green_bg">
+                  <image src='../images/icon_item_6.pic'></image>
+                </view>
+                <view>
+                  项目数
+                </view>
+                <view>
+                  {{statistics_datas.project}}
+                </view>
+              </view>
+              <view class="item">
+                <view class="green_bg">
+                  <image src='../images/icon_item_7.png'></image>
+                </view>
+                <view>
+                  图书数
+                </view>
+                <view>
+                  {{statistics_datas.book}}
+                </view>
+              </view> 
+              <view class="item placeholder_item">
+              </view>
+              <!-- <view class="item placeholder_item">
+              </view> -->
+              
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class='c_title'>
+      <text>最新主题</text> 
+      <navigator url="../topic_tabs/topic_tabs">
+        <image src="../images/icon_arrow_right.svg"></image>
+      </navigator>
+    </view>
+
+    <view class='c_lists' wx:for="{{topics_list}}" wx:key="{{topics_list.id}}">
+      <navigator url="../topic_detail/topic_detail?id={{item.tid}}&like={{item.like?item.like:0}}">
+        <view class='list'>
+          <image wx:if="{{item.user.avatar && item.flag}}" src="{{item.user.avatar}}" class='icon_topic'></image>
+          <image  wx:else src="../images/icon_topic.png" class='icon_topic'></image>
+          <view class="title_0">{{item.title}}</view>
+          <view class="desp_0">
+            <text>{{item.node.name}}</text>
+            <text>{{item.user.username}}</text>
+            <view wx:if="{{item.lastreplyusername}}">最后由{{item.lastreplyusername}}于{{item.lastreplytime}}回复</view>
+            <view wx:else>于{{item.ctime}}发布</view>
+          </view>
+        </view>
+      </navigator>  
+      <view class='c_about'> 
+        <view>
+          <image src="../images/icon_3.png"></image>
+          <text>{{item.view}}</text>
+        </view>
+        <view>
+          <image src="../images/icon_4.png"></image>
+          <text>{{item.reply}}</text>
+        </view>
+        <view>
+          <image src="../images/icon_5.png"></image>
+          <text>{{item.like}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class='c_title c_title_0'>
+      <text>最新文章</text>
+      <navigator url="../article/article">
+        <image src="../images/icon_arrow_right.svg"></image>
+      </navigator> 
+    </view>
+    
+    <view class='c_lists' wx:for="{{articles_list}}" wx:key="{{articles_list.id}}">
+      <navigator url="../article_detail/article_detail?id={{item.id}}&like={{item.likenum?item.likenum:0}}">
+        <view class='list'>
+          <view class="title">{{item.title}}</view>
+          <!-- <view class="desp">So people can, is convinced that can. 人之因此能，是坚信能。 new( ) 能为引用类型分配内容，但不是完整的创建。以map为例，仅仅是分配了类型本身（将类型的指针包装起来）所需的内存。并没有分配键值所存储需要的内存，也没有初始化hash桶等内部属性，因此一下案例是panic的。</view> -->
+        </view>
+      </navigator>  
+      <view class='c_about'>
+        <view>
+          <image src="../images/icon_1.png"></image>
+          <text>{{item.name}}</text>
+        </view>  
+        <view>
+          <image src="../images/icon_2.png"></image>
+          <text>{{item.author_txt}}</text>
+        </view>
+        <view>
+          <image src="../images/icon_3.png"></image>
+          <text>{{item.viewnum}}</text>
+        </view>
+        <view>
+          <image src="../images/icon_4.png"></image>
+          <text>{{item.cmtnum}}</text>
+        </view>
+        <view>
+          <image src="../images/icon_5.png"></image>
+          <text>{{item.likenum}}</text>
+        </view>
+        <view>
+          <image src="../images/icon_6.png"></image>
+          <text>{{item.pub_date}}</text>
+        </view>
+        <view>
+          <image src="../images/icon_7.png"></image>
+          <navigator url="">{{item.tags[0]}}</navigator>
+          <navigator url="">{{item.tags[1]}}</navigator>
+          <navigator url="">{{item.tags[2]}}</navigator>
+          <navigator url="">{{item.tags[3]}}</navigator>
+        </view>
+      </view>  
+    </view> 
+    
+    <!-- <view class='c_lists'>
+      <navigator url="">
+        <view class='list'>
+          <view class="title">在比特币上表白-使用Golang将誓言存在比特币的区块链上</view>
+          <view class="desp">大家先看一个区域链浏览器的交易链接: https://www.blocktrail.com/tBCC/tx/a63edbbfa17e45b0890520ca30fce6d8eacd41635d1c447418fcfedffa14d914 打开这个链接, 滑到最后, 会看如图所示的文字 这是怎么做到的? 这是一个比特币的交易, 怎么能附上中文呢? 本文就一步步教 你怎么在比特币交易上添加文字. 因为比特币的交易具有不可篡改性, 且永久存在区域链上, 那么其附带的文字就有这个属性, 这就好像是一个誓</view>
+        </view>
+      </navigator>  
+      <view class='c_about'>
+        <view>
+          <image src="../images/icon_1.png"></image>
+          <text>开源中国博客</text>
+        </view>
+        <view>
+          <image src="../images/icon_2.png"></image>
+          <text>WUYIN</text>
+        </view>
+        <view>
+          <image src="../images/icon_3.png"></image>
+          <text>18</text>
+        </view>
+        <view>
+          <image src="../images/icon_4.png"></image>
+          <text>0</text>
+        </view>
+        <view>
+          <image src="../images/icon_5.png"></image>
+          <text>0</text>
+        </view>
+        <view>
+          <image src="../images/icon_6.png"></image>
+          <text>2018-01-19 15:26:06</text>
+        </view>
+        <view>
+          <image src="../images/icon_7.png"></image>
+          <navigator url="">测试</navigator>
+          <navigator url="">github</navigator>
+          <navigator url="">私钥</navigator>
+          <navigator url="">信息</navigator>
+        </view>
+      </view>
+    </view> -->
+  </view>
+</view>

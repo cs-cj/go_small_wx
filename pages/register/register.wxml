@@ -1,0 +1,24 @@
+<view class="register">
+   <form bindsubmit="formSubmit">
+      <view class="section">
+        <input placeholder="4-20位包含数字、大小写字母或下划线的用户名" type="text" placeholder-class='common' name="account"/>
+      </view>
+      <view class="section">
+        <input placeholder="请输入邮箱" type="text" placeholder-class='common' name="email"/>
+      </view>
+      <view class="section">
+        <input placeholder="6-16位包含数字、大小写字母的密码" password='{{password}}' type="text" placeholder-class='common' name="psd"/>
+        <image src="../images/close_eye.png" bindtap='isHiddenPsd' wx:if="{{isShow}}"></image>
+        <image src="../images/open_eye.png" bindtap='isHiddenPsd' wx:else></image>
+      </view>
+      <view class="section">
+        <input placeholder="请再次确认密码" password='{{password1}}' type="text" placeholder-class='common' name="psd1" class="pass" />
+        <image src="../images/close_eye.png" bindtap='isHiddenPsd1' wx:if="{{isShow1}}"></image>
+        <image src="../images/open_eye.png" bindtap='isHiddenPsd1' wx:else></image>
+      </view>
+      <view class="sub_btn">
+        <button formType="submit" type="primary">确定</button>
+      </view>
+   </form>
+   <view class="error">{{error}}</view>
+</view>

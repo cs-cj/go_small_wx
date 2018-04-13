@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/classification/classification",
+    "pages/article/article",
+    "pages/topic/topic",
+    "pages/topic_tabs/topic_tabs",
+    "pages/project/project",
+    "pages/resource/resource",
+    "pages/book/book",
+    "pages/reading/reading",
+    "pages/article_detail/article_detail",
+    "pages/topic_detail/topic_detail",
+    "pages/project_detail/project_detail",
+    "pages/resource_detail/resource_detail",
+    "pages/mine/mine",
+    "pages/login/login",
+    "pages/register/register"
+    
+   
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#57bc72",
+    "navigationBarTitleText": "GO",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "color": "#676767",
+    "selectedColor": "#57bc72",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "GO",
+        "iconPath": "pages/images/logo_grey_0.png",
+        "selectedIconPath": "pages/images/logo_0.png"
+      },
+      {
+        "pagePath": "pages/classification/classification",
+        "text": "分类",
+        "iconPath": "pages/images/classification_grey_0.png",
+        "selectedIconPath": "pages/images/classification_0.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "pages/images/mine_grey.png",
+        "selectedIconPath": "pages/images/mine_green.png"
+      }
+    ]
+  }
+}

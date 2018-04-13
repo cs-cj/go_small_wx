@@ -1,0 +1,86 @@
+<view class="container">
+  <!-- <view class='c_title'>
+    <text>全部项目</text>
+  </view> --> 
+  
+  <view class='c_lists' wx:for="{{projects_list}}" wx:key="{{projects_list.id}}">
+     <navigator url="../project_detail/project_detail?id={{item.id}}&like={{item.likenum?item.likenum:0}}"> 
+      <view class='list topic_list'>
+         <image src='../images/portrait.jpg' class="user_portrait"></image> 
+        <!-- <image wx:if="{{item.logo && item.flag}}" src="{{item.logo}}" class='user_portrait'></image> -->
+        <!-- <image  wx:else src="../images/portrait.jpg" class='user_portrait'></image> -->
+        <view class="title">{{item.category}}</view>
+      </view>
+      <!-- <view class="desp desp_2">So people can, is convinced that can. 人之因此能，是坚信能。 new( ) 能为引用类型分配内容，但不是完整的创建。以map为例，仅仅是分配了类型本身（将类型的指针包装起来）所需的内存。并没有分配键值所存储需要的内存，也没有初始化hash桶等内部属性，因此一下案例是panic的。</view> -->
+     </navigator>   
+    <view class='c_about'>
+      <view>
+        <image src="../images/icon_3.png"></image>
+        <text>{{item.viewnum}}</text>
+      </view>
+      <view>
+        <image src="../images/icon_4.png"></image>
+        <text wx:if="{{item.cmtnum}}">{{item.cmtnum}}</text>
+        <text wx:else>0</text>
+      </view>
+      <view>
+        <image src="../images/icon_5.png"></image>
+        <text wx:if="{{item.likenum}}">{{item.likenum}}</text>
+        <text wx:else>0</text>
+      </view>
+    </view>
+
+    <view class='c_about c_about_0'>
+      <view>
+        <image src="../images/icon_6.png"></image>
+        <text>{{item.ctime}}</text>
+      </view>
+      <view>
+        <image src="../images/icon_2.png"></image>
+        <text>{{item.author}}</text>
+      </view>
+    </view>  
+  </view> 
+
+  <view wx:if="{{!hiddebtn}}" class="button-wrapper">  
+    <button type="default" size="default" loading="{{loading}}" bindtap="loadMore">  
+      {{loadText}}  
+    </button>  
+  </view>
+  
+  <!-- <view class='c_lists'>
+    <navigator url="../detail/detail">
+      <view class='list topic_list'>
+        <image src='../images/portrait.jpg' class="user_portrait"></image>
+        <view class="title">CNCF 首个云原生存储项目</view>
+      </view>
+      <view class="desp desp_2">So people can, is convinced that can. 人之因此能，是坚信能。 new( ) 能为引用类型分配内容，但不是完整的创建。以map为例，仅仅是分配了类型本身（将类型的指针包装起来）所需的内存。并没有分配键值所存储需要的内存，也没有初始化hash桶等内部属性，因此一下案例是panic的。</view>
+    </navigator>  
+    <view class='c_about'>
+      <view>
+        <image src="../images/icon_3.png"></image>
+        <text>18</text>
+      </view>
+      <view>
+        <image src="../images/icon_4.png"></image>
+        <text>0</text>
+      </view>
+      <view>
+        <image src="../images/icon_5.png"></image>
+        <text>0</text>
+      </view>
+    </view>
+
+    <view class='c_about c_about_0'>
+      <view>
+        <image src="../images/icon_6.png"></image>
+        <text>2018-01-19 15:26:06</text>
+      </view>
+      <view>
+        <image src="../images/icon_2.png"></image>
+        <text>WUYIN</text>
+      </view>
+    </view>  
+  </view>  -->
+
+</view>

@@ -1,0 +1,33 @@
+<view class="container">
+  <view class='c_class'>
+    <!-- <navigator url="../topic/topic">
+      <view class="topic">主题0</view>
+    </navigator> -->
+
+    <navigator url="../topic_tabs/topic_tabs">
+      <view class="topic">主题</view>
+    </navigator>
+
+    <navigator url="../article/article">
+      <view class="article">文章</view>
+    </navigator>
+
+    <navigator url="../project/project">
+      <view class="project">项目</view>
+    </navigator>
+
+    <navigator url="../resource/resource">
+      <view class="resource">资源</view>
+    </navigator>
+
+    
+
+    <!-- <navigator url="../book/book">
+      <view class="book">图书</view>
+    </navigator>
+
+    <navigator url="../reading/reading">
+      <view class="reading">晨读</view>
+    </navigator> -->
+  </view>  
+</view>

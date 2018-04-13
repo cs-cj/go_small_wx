@@ -1,0 +1,25 @@
+.mine{
+  background:#ffffff;
+  height: 160rpx;
+  line-height: 160rpx;
+  border-bottom:1px solid #dbdbdb;
+}
+.mine>view{
+  display: inline-block;
+}
+.mine_logo{
+  width:128rpx;
+  height: 128rpx;
+  background: #dbdbdb;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin:0 20rpx 0 40rpx;
+}
+.mine_logo image{
+  width:100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.login{
+  color: #8a8a8a;
+}

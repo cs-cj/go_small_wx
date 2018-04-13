@@ -1,0 +1,14 @@
+.user_portrait{
+  min-width: 100rpx;
+  height: 60rpx;
+}
+.c_about_0{
+  border:0;
+  padding-top: 0;
+  display: inline-block;
+  width:100%;
+}
+.c_about_0>view{
+  display: inline-block;
+  margin-right:60rpx;
+}

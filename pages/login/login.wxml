@@ -1,0 +1,28 @@
+<view class="container">
+ <view class="title">提示：如已有账户，直接输入账号邮箱即可。</view>
+ <view class="login_box">
+    <text>登录</text>
+    <view class="login">
+      <form class="login_form" bindsubmit="formSubmit">
+        <view class="section">
+           <input placeholder="请输入用户名或邮箱" type="text" placeholder-class="email" name="email" bindblur="closeBlur"/>
+           <!-- <image src="../images/jiantou.png"></image> -->
+           <view class="error">{{errorInfo}}</view>
+        </view>
+         <view class="section">
+           <input placeholder="请输入密码" type="text" placeholder-class="psd" password name="psd" bindblur="closeBlur1"/>
+            <view class="error">{{errorInfo1}}</view>
+        </view>
+        <!-- <rich-text nodes="{{nodes}}"></rich-text> -->
+        <navigator url="../register/register" class="link">
+           <view class="login_text">注册</view>
+        </navigator>
+        
+        <view class="confirm_btn">
+         <button formType="submit" type="primary" >确定</button>
+        </view>
+    </form>
+    </view>
+    
+ </view>
+</view>

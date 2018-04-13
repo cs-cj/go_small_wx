@@ -1,0 +1,164 @@
+<view class="container">
+
+  <view class='c_menu'> 
+    <view class="swiper-tab menu"> 
+      <view class="menu-item {{currentTab==0 ? 'on' : ''}}" data-current="0"  bindtap="swichNav"  data-id="0" data-tab="all">
+        全部
+      </view>  
+      <view class="menu-item {{currentTab==1 ? 'on' : ''}}" data-current="1"  bindtap="swichNav"  data-id="1" data-tab="qna">
+        GO问与答
+      </view>  
+      <view class="menu-item {{currentTab==2 ? 'on' : ''}}" data-current="2"  bindtap="swichNav"  data-id="2" data-tab="go">
+        GO语言
+      </view> 
+      <!-- <view class="menu-item {{currentTab==3 ? 'on' : ''}}" data-current="3"  bindtap="swichNav"  data-id="3">
+        分类3
+      </view> 
+      <view class="menu-item {{currentTab==4 ? 'on' : ''}}" data-current="4"  bindtap="swichNav"  data-id="4">
+        分类4
+      </view> 
+      <view class="menu-item {{currentTab==5 ? 'on' : ''}}" data-current="5"  bindtap="swichNav"  data-id="5">
+        分类5
+      </view>  -->
+      
+    </view> 
+  </view>  
+  
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">    
+    <swiper-item>   
+      <!-- <view class='c_title'>
+        <text>全部主题</text>
+      </view> -->
+      <!-- <view bindtap='loadMore'>{{loadText}}</view> -->
+      <view class='c_nav'>
+      
+        <view class='c_lists' wx:for="{{topics_list}}" wx:key="{{topics_list.id}}">
+          <navigator url="../topic_detail/topic_detail?id={{item.tid}}">
+            <view class='list'>
+              <image wx:if="{{item.user.avatar && item.flag}}" src="{{item.user.avatar}}" class='icon_topic'></image>
+              <image  wx:else src="../images/icon_topic.png" class='icon_topic'></image>
+              <view class="title_0">{{item.title}}</view>
+              <view class="desp_0">
+                <text>{{item.node.name}}</text>
+                <text>{{item.user.username}}</text>
+                <view wx:if="{{item.lastreplyusername}}">最后由{{item.lastreplyusername}}于{{item.lastreplytime}}回复</view>
+                <view wx:else>于{{item.ctime}}发布</view>
+              </view>
+            </view>
+           </navigator>   
+          <view class='c_about'>
+            <view>
+              <image src="../images/icon_3.png"></image>
+              <text>{{item.view}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_4.png"></image>
+              <text>{{item.reply}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_5.png"></image>
+              <text>{{item.like}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!hiddebtn}}" class="button-wrapper">  
+          <button type="default" size="default" loading="{{loading}}" bindtap="loadMore">  
+                {{loadText}}  
+          </button>  
+        </view>
+        
+      </view> 
+    </swiper-item>  
+
+     <swiper-item>
+      <view class='c_nav'>
+      
+        <view class='c_lists' wx:for="{{topics_list1}}" wx:key="{{topics_list1.id}}">
+          <navigator url="../topic_detail/topic_detail?id={{item.tid}}">
+            <view class='list'>
+              <image wx:if="{{item.user.avatar && item.flag}}" src="{{item.user.avatar}}" class='icon_topic'></image>
+              <image  wx:else src="../images/icon_topic.png" class='icon_topic'></image>
+              <view class="title_0">{{item.title}}</view>
+              <view class="desp_0">
+                <text>{{item.node.name}}</text>
+                <text>{{item.user.username}}</text>
+                <view wx:if="{{item.lastreplyusername}}">最后由{{item.lastreplyusername}}于{{item.lastreplytime}}回复</view>
+                <view wx:else>于{{item.ctime}}发布</view>
+              </view>
+            </view>
+          </navigator>  
+          <view class='c_about'>
+            <view>
+              <image src="../images/icon_3.png"></image>
+              <text>{{item.view}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_4.png"></image>
+              <text>{{item.reply}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_5.png"></image>
+              <text>{{item.like}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!hiddebtn1}}" class="button-wrapper">  
+          <button type="default" size="default" loading="{{loading}}" bindtap="loadMore1">  
+                {{loadText}}  
+          </button>  
+        </view>
+        
+      </view> 
+    </swiper-item>  
+
+    <swiper-item>
+      <view class='c_nav'>
+      
+        <view class='c_lists' wx:for="{{topics_list2}}" wx:key="{{topics_list2.id}}">
+          <navigator url="../topic_detail/topic_detail?id={{item.tid}}">
+            <view class='list'>
+              <image wx:if="{{item.user.avatar && item.flag}}" src="{{item.user.avatar}}" class='icon_topic'></image>
+              <image  wx:else src="../images/icon_topic.png" class='icon_topic'></image>
+              <view class="title_0">{{item.title}}</view>
+              <view class="desp_0">
+                <text>{{item.node.name}}</text>
+                <text>{{item.user.username}}</text>
+                <view wx:if="{{item.lastreplyusername}}">最后由{{item.lastreplyusername}}于{{item.lastreplytime}}回复</view>
+                <view wx:else>于{{item.ctime}}发布</view>
+              </view>
+            </view>
+          </navigator>  
+          <view class='c_about'>
+            <view>
+              <image src="../images/icon_3.png"></image>
+              <text>{{item.view}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_4.png"></image>
+              <text>{{item.reply}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_5.png"></image>
+              <text>{{item.like}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!hiddebtn2}}" class="button-wrapper">  
+          <button type="default" size="default" loading="{{loading}}" bindtap="loadMore2">  
+                {{loadText}}  
+          </button>  
+        </view>
+        
+      </view>
+    </swiper-item>    
+  </swiper>  
+  
+
+
+
+  
+
+</view>

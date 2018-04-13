@@ -1,0 +1,42 @@
+.register{
+  background: #fff;
+  padding:60rpx 80rpx;
+  position: relative;
+}
+.section{
+  margin-top:30rpx;
+  position: relative;
+  border-bottom: 1px solid  #bfbfbf;
+}
+.section:nth-of-type(1) input{
+  width:100%;
+}
+.section input{ 
+   width: 93%; 
+}
+.section image{
+position: absolute;
+width: 48rpx;
+height: 48rpx;
+top:0;
+right:0;
+}
+.common{
+  color: #bfbfbf;
+  font-size: 28rpx;
+  /* width:100%; */
+}
+.sub_btn{
+  margin-top:60rpx;
+}
+.sub_btn button{
+  width:400rpx;
+  height: 80rpx;
+}
+.error{
+  position: absolute;
+  bottom:150rpx;
+  left:80rpx;
+  font-size: 28rpx;
+  color: red;
+}

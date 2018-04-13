@@ -1,0 +1,69 @@
+<view class="container">
+
+  <!-- <view class='c_menu'> 
+    <view class="swiper-tab menu"> 
+      <view class="menu-item {{currentTab==0 ? 'on' : ''}}" data-current="0"  bindtap="swichNav"  data-id="0">
+        精彩文章
+      </view>  
+      <view class="menu-item {{currentTab==1 ? 'on' : ''}}" data-current="1"  bindtap="swichNav"  data-id="1">
+        开源项目
+      </view>  
+      <view class="menu-item {{currentTab==2 ? 'on' : ''}}" data-current="2"  bindtap="swichNav"  data-id="2">
+        GO语言资料
+      </view> 
+       <view class="menu-item {{currentTab==3 ? 'on' : ''}}" data-current="3"  bindtap="swichNav"  data-id="3">
+        其他资源
+      </view>    
+    </view> 
+  </view>   -->
+  
+<!-- <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">    
+  <swiper-item>   
+    <view class='c_nav' wx:if="{{currentTab==0}}">     -->
+      <view class='c_lists' wx:for="{{resources_list}}" wx:key="{{resources_list.id}}">
+        <navigator url="../resource_detail/resource_detail?id={{item.id}}&like={{item.likenum}}"> 
+          <view class='list'>   
+            <view class="title_0">{{item.title}}</view>
+            <image wx:if="{{item.user.avatar && item.flag}}" src="{{item.user.avatar}}" class='icon_topic'></image>
+            <image  wx:else src="../images/icon_topic.png" class='icon_topic'></image>
+            <view class="desp_1">
+              <image src="../images/icon_2.png"></image>
+              <text>{{item.user.username}}于{{item.ctime}}发布</text>
+            </view>
+          </view>
+        </navigator>  
+        <view class='c_about'>
+          <view>
+            <image src="../images/icon_3.png"></image>
+            <text>{{item.viewnum}}</text>
+          </view>
+          <view>
+            <image src="../images/icon_4.png"></image>
+            <text>{{item.cmtnum}}</text>
+          </view>
+          <view>
+            <image src="../images/icon_5.png"></image>
+            <text>{{item.likenum}}</text>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{!hiddebtn}}" class="button-wrapper">  
+        <button type="default" size="default" loading="{{loading}}" bindtap="loadMore">  
+          {{loadText}}  
+        </button>  
+      </view>
+    <!-- </view>   -->
+
+    <!-- <view class='c_title'>
+      <text>全部主题</text>
+    </view> -->
+
+    
+  <!-- </swiper-item>  
+</swiper>   -->
+
+
+
+  
+
+</view>

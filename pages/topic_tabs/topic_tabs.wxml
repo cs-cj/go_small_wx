@@ -1,0 +1,109 @@
+<view class="container">
+  <!-- <view class="loading-modal" wx:if="{{!topics_list[0]}}">
+    <view class="loading-text-wrap">
+      <image src="../images/loading.gif" class="load_img"></image>
+      <view class="loading-text">loading...</view>
+    </view>
+  </view>
+  <view wx:else>  -->
+    <scroll-view class="navbar" scroll-x="true" scroll-left="{{scrollNavbarLeft}}">
+        <view class="navbar-item {{ navbarArray[item].type }}" id="{{ item }}" wx:for="{{ navbarShowIndexArray }}" catchtap="onTapNavbar">
+            <view class="navbar-item-wrap">{{ navbarArray[item].text }}</view>
+        </view>
+        <!-- <view class="navbar-item">
+            <view class="navbar-item-wrap">{{ navbarArray[10].text }}</view>
+        </view>  -->
+        <view class="navbar-item visibility-hidden">
+            <view class="navbar-item-wrap">空白</view>
+        </view> 
+    </scroll-view>
+    <view class="navbar-arrow-down" catchtap="showChannelSettingModal">
+        <view class="navbar-arrow-down-wrap">
+            <image class="navbar-arrow-icon" src="../images/icon_arrow_down.png"></image>
+        </view>
+    </view>
+    <view class="channel-setting {{ channelSettingShow }}">
+        <view class="channel-setting-text">分类设置</view>
+        <view class="navbar-arrow-up" catchtap="hideChannelSettingModal">
+            <image class="navbar-arrow-icon navbar-arrow-icon-up" src="../images/icon_arrow_up.png"></image>
+        </view>
+    </view>
+    <view class="channel-setting-modal {{ channelSettingModalShow }}" hidden="{{ channelSettingModalHide }}">
+        <view class="channel-show-text">
+            <view class="channel-show-text-wrap">显示分类</view>
+        </view>
+        <view class="channel-item" wx:for="{{ navbarShowIndexArray }}">
+            <view class="channel-item-wrap">
+                <view class="channel-item-left">
+                    <image class="channel-item-icon-minus {{ !index || navbarShowIndexArray.length < 4 ? 'visibility-hidden' : '' }}" id="{{ item }}.0" src="../images/icon_minus.svg" catchtap="hideChannel"></image>
+                    <view class="channel-item-text">{{ navbarArray[item].text }}</view>
+                </view>
+                <view class="channel-item-up {{ index < 2 ? 'visibility-hidden' : '' }}" id="{{ item }}.00" catchtap="upChannel">上移</view>
+            </view>
+        </view>
+        <view class="channel-hide-text">
+            <view class="channel-hide-text-wrap">隐藏分类</view>
+        </view>
+        <view class="channel-item" wx:for="{{ navbarHideIndexArray }}">
+            <view class="channel-item-wrap">
+                <view class="channel-item-left">
+                    <image class="channel-item-icon-plus" id="{{ item }}.0" src="../images/icon_plus.svg" catchtap="showChannel"></image>
+                    <view class="channel-item-text">{{ navbarArray[item].text }}</view>
+                </view>
+                <view class="channel-item-up visibility-hidden">上移</view>
+            </view>
+        </view>
+    </view>
+     <view class="loading-modal" hidden="{{ loadingModalHide }}">
+        <view class="loading-text-wrap">
+            <image src="../images/loading.gif" class="load_img"></image>
+            <view class="loading-text">loading...</view>
+        </view>
+    </view> 
+    <scroll-view class="articles" bindtouchstart="onTouchstartArticles" bindtouchend="onTouchendArticles" hidden="{{ articlesHide }}">
+         <!-- <view class="article" wx:for="{{ temporaryArray }}">Hello, {{ articleContent }} - {{ item }}</view>  -->
+      <view class="article">
+
+        <view class='c_lists' wx:for="{{topics_list}}" wx:key="{{topics_list.id}}">
+          <navigator url="../topic_detail/topic_detail?id={{item.tid}}&like={{item.like}}">
+            <view class='list'>
+              <image wx:if="{{item.user.avatar && item.flag}}" src="{{item.user.avatar}}" class='icon_topic'></image>
+              <image  wx:else src="../images/icon_topic.png" class='icon_topic'></image>
+              <view class="title_0">{{item.title}}</view>
+              <view class="desp_0">
+                <text>{{item.node.name}}</text>
+                <text>{{item.user.username}}</text>
+                <view wx:if="{{item.lastreplyusername}}">最后由{{item.lastreplyusername}}于{{item.lastreplytime}}回复</view>
+                <view wx:else>于{{item.ctime}}发布</view>
+              </view>
+            </view>
+           </navigator>   
+          <view class='c_about'>
+            <view>
+              <image src="../images/icon_3.png"></image>
+              <text>{{item.view}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_4.png"></image>
+              <text>{{item.reply}}</text>
+            </view>
+            <view>
+              <image src="../images/icon_5.png"></image>
+              <text>{{item.like}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!hiddebtn}}" class="button-wrapper">  
+          <button type="default" size="default" loading="{{loading}}" bindtap="loadMore" data-tab="{{tab_active}}">  
+                {{loadText}}  
+          </button>  
+        </view>
+      </view> 
+
+      <view wx:if="{{!topics_list[0]}}" class="none-result">  
+          暂无数据
+      </view>
+    </scroll-view>
+   <!-- </view>  -->
+</view>

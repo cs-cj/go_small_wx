@@ -1,0 +1,10 @@
+<view class="mine">
+
+<view class="mine_logo">
+<image wx:if="{{user.avatar}}" src="{{user.avatar}}"></image>
+<image wx:else src="../images/mine_logo.png"></image>
+</view>
+<view class="login" wx:if="{{user.nickname}}">{{user.nickname}}</view>
+<view class="login" wx:else bindtap="login">登录/注册</view>
+
+</view> 

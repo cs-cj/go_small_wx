@@ -1,0 +1,46 @@
+<view class="container">
+  
+  <view class='c_lists'>
+    <navigator url="../detail/detail">
+      <view class='list'>
+        <view>
+          <view class="title">Golang 中new和make的区别简单分析</view>
+          <view class="desp">[作]Brian Ketelsen,Erica Martin.William Kennedy</view>
+          <view class="desp">[译]李兆海<text>2017-03-01</text></view>
+          <view class="desp desp_3">So people can, is convinced that can. 人之因此能，是坚信能。 new( ) 能为引用类型分配内容，但不是完整的创建。以map为例，仅仅是分配了类型本身（将类型的指针包装起来）所需的内存。并没有分配键值所存储需要的内存，也没有初始化hash桶等内部属性，因此一下案例是panic的。</view>
+        </view>
+        <view class='c_book'>
+          <view class="c_img">
+            <image src='../images/book.png'></image>
+          </view>
+          <view class="font_green">4人推荐</view>
+          <view class='font_grey'>10条评论</view>
+          <view >2.3万阅读</view>
+        </view>
+      </view>
+    </navigator>    
+  </view> 
+
+  <view class='c_lists'>
+    <navigator url="../detail/detail">
+      <view class='list'>
+        <view>
+          <view class="title">Golang 中new和make的区别简单分析</view>
+          <view class="desp">[作]Brian Ketelsen,Erica Martin.William Kennedy</view>
+          <view class="desp">[译]李兆海<text>2017-03-01</text></view>
+          <view class="desp desp_3">So people can, is convinced that can. 人之因此能，是坚信能。 new( ) 能为引用类型分配内容，但不是完整的创建。以map为例，仅仅是分配了类型本身（将类型的指针包装起来）所需的内存。并没有分配键值所存储需要的内存，也没有初始化hash桶等内部属性，因此一下案例是panic的。</view>
+        </view>
+        <view class='c_book'>
+          <view class="c_img">
+            <image src='../images/book.png'></image>
+          </view>
+          <view class="font_green">4人推荐</view>
+          <view class='font_grey'>10条评论</view>
+          <view >2.3万阅读</view>
+        </view>
+      </view>
+    </navigator>    
+  </view>
+  
+
+</view>

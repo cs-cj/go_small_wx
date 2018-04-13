@@ -1,0 +1,87 @@
+<view class="container">
+
+  <view class='c_menu'> 
+    <view class="swiper-tab menu"> 
+      <view class="menu-item {{currentTab==0 ? 'on' : ''}}" data-current="0"  bindtap="swichNav"  data-id="0">
+        GO晨读
+      </view>  
+      <view class="menu-item {{currentTab==1 ? 'on' : ''}}" data-current="1"  bindtap="swichNav"  data-id="1">
+        综合晨读
+      </view>  
+      
+    </view> 
+  </view>  
+  
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">    
+  <swiper-item>   
+    <view class='c_lists'>
+      <navigator url="">
+        <view class='list'>   
+          <view class='c_time'>2018-02-06</view>
+          <view>
+          <view class="title_0">GCTT:GO中文翻译组立了，期待大家的加入</view>
+          <view class='c_buttons'>
+            <view class="c_iwant">我要晨读</view>
+            <view class="c_url">网页链接</view>
+          </view> 
+          </view>
+               
+        </view>
+      </navigator>  
+      <view class='c_about'>
+        <view>
+          <image src="../images/icon_6.png"></image>
+          <text>6天之前</text>
+        </view>
+        <view>
+          <image src="../images/icon_2.png"></image>
+          <text>polaris</text>
+        </view>
+        <view>
+          <image src="../images/icon_3.png"></image>
+          <text>已有66人晨读</text>
+        </view>
+        
+        
+      </view>
+    </view>
+
+    <view class='c_lists'>
+      <navigator url="">
+        <view class='list'>   
+          <view class='c_time'>2018-02-06</view>
+          <view>
+          <view class="title_0">GCTT:GO中文翻译组立了，期待大家的加入</view>
+          <view class='c_buttons'>
+            <view class="c_iwant">我要晨读</view>
+            <view class="c_url">网页链接</view>
+          </view> 
+          </view>
+               
+        </view>
+      </navigator>  
+      <view class='c_about'>
+        <view>
+          <image src="../images/icon_6.png"></image>
+          <text>6天之前</text>
+        </view>
+        <view>
+          <image src="../images/icon_2.png"></image>
+          <text>polaris</text>
+        </view>
+        <view>
+          <image src="../images/icon_3.png"></image>
+          <text>已有66人晨读</text>
+        </view>
+        
+        
+      </view>
+    </view>
+  </swiper-item>  
+</swiper>  
+
+
+
+  
+
+</view>

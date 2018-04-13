@@ -1,0 +1,92 @@
+<import src="../../utils/wxParse/wxParse.wxml" />
+<view class="container"> 
+  <view class="loading-modal" hidden="{{ loadingModalHide }}" wx:if="{{!article_detail}}">
+    <view class="loading-text-wrap">
+      <!-- <text class="loading-text">loading...</text> -->
+      <image src="../images/loading.gif" class="load_img"></image>
+      <view class="loading-text">loading...</view>
+    </view>
+  </view>
+
+  <view wx:else>
+    <view class='c_detail'>
+      <view class="title">{{article_detail.title}}</view>
+      <view class="record bottom_padding">
+        <text>{{article_detail.author_txt}}</text>
+        <text wx:if="{{pub_time_minutes && show_minutes}}">大约{{pub_time_minutes}}分钟之前</text>
+        <text wx:if="{{pub_time_hours && show_hours}}">大约{{pub_time_hours}}小时之前</text>
+        <text wx:if="{{pub_time_days}}">{{pub_time_days}}天之前</text>
+        <text wx:else>{{article_detail.ctime}}</text>
+        <text>{{article_detail.viewnum}}次点击</text>
+        <!-- <text>预计阅读时间不到 1 分钟</text>
+        <text>4分钟之前 开始浏览</text> -->
+      </view>
+      <view class="content top_padding">
+        <template is="wxParse" data="{{wxParseData:detail_content.nodes}}" /> 
+        <button class="praise" bindtap='showPraise'>
+         <image src="../images/zan1.png" wx-if="{{!isPraise}}"></image>
+         <image src="../images/zan.png" wx:else></image>
+         <text>{{like}}</text>
+        </button>
+        <!-- <rich-text nodes="{{nodes}}" style='width:100%;height:100px;'>{{nodes}}</rich-text> -->
+      </view>
+    </view>
+    <view class='c_comment'>
+      <view wx:if="{{article_detail.cmtnum}}" class='bottom_padding font_grey'>{{article_detail.cmtnum}} 回复  |  直到 {{article_detail.lastreplytime}}</view>
+      <view wx:else class='bottom_padding font_grey'>暂无回复</view>
+
+
+      <view class='top_padding' wx:for="{{comment_list}}" wx:key="{{item.id}}">
+         <image  wx:if="{{item.img_url&&item.flag}}" src="{{item.img_url}}" class='icon_user'></image>    
+         <image wx:elif="{{item.user.avatar}}" src="{{item.user.avatar}}" class='icon_user'></image>  
+         <image  wx:else src="../images/default_avatar.jpg" class='icon_user'></image>
+        <!-- <image  src="../images/default_avatar.jpg" class='icon_user'></image>  -->
+        <view class="comment_info">
+          <text>{{item.user.username}}</text>
+          <text class='font_grey'>{{item.ctime}}</text>
+          <!-- <view>{{item.content}}</view> -->
+          <rich-text nodes="{{item.content}}">{{item.content}}</rich-text> <!--富文本解析-->
+
+        </view>
+      </view>
+
+      <!-- <view class='top_padding'>
+        <image src="../images/icon_topic.png" class='icon_user'></image>
+        <view class="comment_info">
+          <text>buscop</text>
+          <text class='font_grey'>3个月之前</text>
+          <view>我是评论</view>
+        </view>
+      </view> -->
+    </view> 
+
+    <view class="comment-fixed">
+    <form>
+        <view class="cf-box">     
+        <input class="cf-content" placeholder="你想说点什么呢..." bindinput="shuInput" value="{{content}}"/> 
+        <image src="../images/emoji.png" catchtap="emojiShowHide"></image>
+         <button formType="submit" class="cf-send touch-active" bindtap="send">发送</button>
+        <!-- <text class="cf-send touch-active" bindtap="send">发送</text> -->
+     </view>
+     <view class="emoji-box {{isShow ? 'emoji-move-in' : 'emoji-move-out'}} {{isLoad ?        'no-emoji-move' : ''}}">     
+<scroll-view scroll-y="true" style="height:200px">
+       
+  <block wx:for="{{emojis}}" wx:for-item="e" wx:key="">
+          
+<view class="emoji-cell">
+ <image class="touch-active" catchtap="emojiChoose" src="http://soupu.oss-cn-shanghai.aliyuncs.com/emoji/{{e.emoji}}.png" data-emoji="{{e.char}}" data-oxf="{{e.emoji}}"></image>
+</view>
+      
+</block> 
+      
+</scroll-view>
+    
+</view>
+    </form>    
+    
+     
+
+    </view>
+  </view>
+  
+</view>
